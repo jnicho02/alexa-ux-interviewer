@@ -1,0 +1,39 @@
+service: alexa-ux-interviewer
+provider:
+  name: aws
+#  runtime: nodejs4.3
+  runtime: nodejs6.10
+#  runtime: nodejs8.10
+  stage: dev
+  region: eu-west-1
+#  region: us-west-1
+  environment:
+# to lock your Lambda to your Alexa Skill
+#    APP_ID: amzn1.ask.skill.nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn
+# permissions for persisting session data
+#   USE_DYNAMO_DB: true
+#  iamRoleStatements:
+#    - Effect: "Allow"
+#      Action:
+#        - "dynamodb:DescribeTable"
+#        - "dynamodb:Query"
+#        - "dynamodb:Scan"
+#        - "dynamodb:GetItem"
+#        - "dynamodb:PutItem"
+#        - "dynamodb:UpdateItem"
+#        - "dynamodb:DeleteItem"
+#        - "dynamodb:CreateTable"
+#      Resource: "arn:aws:dynamodb:eu-west-1:*:*"
+functions:
+  hello:
+    handler: lambda/custom/index.handler
+    events:
+      - alexaSkill
+package:
+  include:
+    - lambda/custom/index.js
+    - node_modules/ask-sdk-core/**
+    - node_modules/ask-sdk-model/**
+  exclude:
+    - node_modules/**
+    - .*/**
