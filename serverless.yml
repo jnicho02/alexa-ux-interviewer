@@ -31,7 +31,7 @@ functions:
       - alexaSkill
 package:
   include:
-    - lambda/custom/index.js
+    - lambda/custom/*.js
     - node_modules/ask-sdk-core/**
     - node_modules/ask-sdk-model/**
   exclude:
