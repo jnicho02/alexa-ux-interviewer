@@ -32,8 +32,9 @@ functions:
 package:
   include:
     - lambda/custom/*.js
-    - node_modules/ask-sdk-core/**
-    - node_modules/ask-sdk-model/**
+    - lambda/custom/node_modules/ask-sdk-core/**
+    - lambda/custom/node_modules/ask-sdk-model/**
   exclude:
+    - lambda/custom/node_modules/**
     - node_modules/**
     - .*/**
